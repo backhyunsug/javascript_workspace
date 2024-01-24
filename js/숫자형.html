@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let a = 10;
+    let b = 4;
+
+    console.log( `${a} + ${b} = ${a+b}`);
+    console.log( `${a} - ${b} = ${a-b}`);
+    console.log( `${a} * ${b} = ${a*b}`);
+    console.log( `${a} / ${b} = ${a/b}`);
+    console.log( `${a} % ${b} = ${a%b}`);
+
+    let c;
+    console.log( `c = ${c}`); 
+    console.log( `${a} + ${c} = ${a+c}`);//자바의 String.format 표현식과 유사 
+
+    let d = null; //개발자가 변수에 아무것도 할당되지 않음을 나타내고 싶을때는 null값을 
+                  //줘야 한다. 
+                  //null은 연산시 0으로 해석함 
+    console.log( `d = ${d}`); 
+    console.log( `${a} + ${d} = ${a+d}`);
+
+</script>

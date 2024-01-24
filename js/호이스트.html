@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>호이스트</h1>
+</body>
+</html>
+
+<script>
+    // a = 100;
+    // console.log( "a = ", a);
+
+    // let a; 
+    // console.log( "a = ", a);  //아까와 동일한 100이 출력된다. 여기서 새로 만들지 않고 
+    //                           //이미 만들어진 a를 참조한다
+    
+    let msg="안녕하세요";
+    if( true)
+    {
+        let msg="Hello";//if문에서만 존재하는 변수이다. 
+    }
+
+    console.log( msg ); //??? 뭐가 출력될가요?
+
+</script>

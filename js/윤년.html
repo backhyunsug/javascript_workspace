@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>윤년알아보기</h1>
+</body>
+</html>
+
+<script>
+    let year = prompt("연도 : ", 2024);
+    if( year != null)
+    {
+        if( year%4==0 && year%100!=0  || year%400==0)
+        {
+            alert(`${year}는 윤년이다`);
+        }
+        else
+        {
+            alert(`${year}는 윤년이 아니다`);
+        }
+    }
+    else
+    {
+        alert("취소를 선택하셨습니다.");
+    }
+</script>

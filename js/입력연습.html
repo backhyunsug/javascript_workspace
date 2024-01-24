@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        나이 : <input type="text" name="age" id="age"> 
+        <button type="button" onclick="goClick()">누르세요</button>
+    </form>
+</body>
+</html>
+<script>
+    function goClick() //이벤트가 발생할때 호출될 함수 
+    {
+        //age라는 이름이랑 아이디를 갖는 input 객체에 대한 접근 방법은
+        //window -> window.document - html 문서  
+        var ageObj = document.getElementById('age'); //이때는 첫번째 객체
+        var ageObj2 = document.getElementsByName('age')[0]; 
+        //무조건 배열이랑 인덱싱을 해야한다
+        
+        console.log( ageObj.value );
+        console.log( ageObj2.value );
+    }
+    
+
+</script>
