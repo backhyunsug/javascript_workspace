@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>함수1</h1>
+</body>
+</html>
+<script>
+    function sayHello(name)
+    {
+        console.log(name);
+    }
+
+    //함수의 호출
+    sayHello("홍길동");
+    sayHello("임꺽정");
+    sayHello("장길산");
+    console.log( sayHello("김성훈") ); //undefined
+    let result = sayHello("김성훈");
+
+    //overloading 은 지원하지 않는다. - 함수의 이름은 같은데 형태가 다른 함수가 존재하는걸
+    //자바스크립트는  하나의 파일에 함수이름이 하나만 존재해야 한다. 
+    //매개변수에 기본값을 부여 할 수 있다. 
+    //그래서 우리가 값을 안주면 기본값으로 대체 되어 진다. 
+    //오버로딩과 비슷한 효과를 가져온다 
+    function myfunc(a=1, b=2, c=3)
+    {
+        console.log(`a=${a} b=${b} c=${c}`);
+        return a+b+c; 
+    }
+
+    console.log( myfunc() ); 
+    console.log( myfunc(10) ); 
+    console.log( myfunc(10,20) ); 
+    console.log( myfunc(10,20,30) ); 
+    console.log( myfunc(b=23) ); //파이썬의 경우에 매개변수 지정할 수 있다 
+
+    //함수를 만들때 기본값을 주기시작하면 그 변수부터는 계속 기본값을 주어야 한다 
+    function myfunc2(a, b=2, c=3)
+    {
+        console.log(`a=${a} b=${b} c=${c}`);
+        return a+b+c;
+    }
+    console.log( myfunc2() ); //a에는 ubdefined - undefined + 2+3=> NaN
+
+    /*함수만들기 : 1~limit 전달하면 1~limit까지의 합계를 반환하는 함수*/ 
+    function sigma(limit=10)
+    {
+        sum=0;
+        for(i=1; i<=limit; i++)
+        {
+            sum+=i;
+        }
+
+        return sum;
+    }
+
+    console.log( sigma() );
+    console.log( sigma(100) );
+    
+    // || 연산자
+    function showMsg(msg)
+    {
+        //매개변수에 값을 안주면 -> undefined 가 저장된다. 
+        msg = msg || "빈문자열";
+        console.log("msg = ", msg);
+    }
+
+    showMsg();
+    showMsg("안녕하세요");
+
+    function getCount(count)
+    {
+        count = count ?? "No count";
+        return count;
+    }
+
+    console.log( getCount(5) );
+    console.log( getCount(null) );
+    console.log( getCount() );
+    console.log( getCount("") );
+
+
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>상수</h1>
+</body>
+</html>
+
+<script>
+    const myBirth = "1996.12.17";
+    //myBirth = "1997.01.04";  --  error 발생 
+    console.log( myBirth );
+
+    const person = {name:"홍길동", age:12, address:"서울시 관악구"}; //json객체 
+    console.log( person );
+
+    person.name = "장길산";
+    console.log( person );
+
+    //객체 자체의 대입은 안되지만, 객체 안의 요소들 값을 바꾸는건 가능하다
+    person =  {name:"임꺽정", age:22, address:"서울시 관악구"};
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>prompt 사용하기</h1>
+</body>
+</html>
+
+<script>
+    let x = prompt("정수 1 : ", 5);
+    let y = prompt("정수 2 : ", 7);
+
+    //esc
+    if( x!=null && y!=null) //둘다 제대로 입력되었을때 
+    {
+        let z = parseInt(x) + parseInt(y);
+        alert(`결과는 ${z} 입니다`);
+    }
+    else
+    {
+        alert("취소를 선택했습니다");
+    }
+    
+</script>
+
+/*
+문제 : 연도 입력받아서 윤년 여부를 판단하자 
+      4의 배수는 윤년
+      100 의 배수는 윤년이 아님 
+      400의 배수는 윤년 
+      
+*/
