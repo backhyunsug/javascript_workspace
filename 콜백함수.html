@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>콜백함수</h1>
+</body>
+</html>
+
+<script>
+    //시스템 안쪽에서 벌어지는 일이라 우린 모름 
+    function myfunction(x, y, callback)
+    {
+        console.log("callback start");
+        result = callback(x, y); //callback이라는 변수에 전달될 함수는 
+                                 //두개의 매개변수를 갖고 반환값이 하나 존재해야 한다 
+        console.log("결과 ", result );
+        console.log("callback end");
+    }
+
+    //함수를 만들어서 전달 
+    function add(x, y)
+    {
+        return x+y;
+    }
+
+    myfunction(5, 7, add );
+    myfunction(5,7, function(a, b){
+        return a-b;
+    });
+    myfunction(5,7, (a,b)=>a*b);
+</script>

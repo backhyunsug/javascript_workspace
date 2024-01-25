@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <h1>함수표현식</h1>
+
+    <button type="button" onclick="goCall1()">이벤트핸들러</button> 
+    <br/>
+    <button type="button" id="btnPress">이벤트핸들러2</button> 
+</body>
+</html>
+
+<script>
+    //window.onload = 함수를 전달, html 문서가 모두 메모리로 로딩 된 후
+    //                여기에 전달된 함수를 호출하기로 한다 
+    //window.ondload = 호출될 함수 전달(콜백함수) 
+    //이벤트핸들러 또는 비동기처리 함수들이 콜백함수를 사용한다 
+    
+    window.onload = function(){
+        var btnPress = document.getElementById("btnPress"); //버튼 객체 주소가 저장된다
+        //함수의 매개변수로 함수를 전달할 수 있다
+        btnPress.addEventListener("click", function(){ //표현식
+            alert("이벤트 핸들러 222222");
+        });
+
+        btnPress.addEventListener("click", ()=>{ //화살표 함수 
+            alert("이벤트 핸들러 3333333");
+        });
+    }
+
+    function goCall1()
+    {
+        alert("이벤트 핸들러 11111");
+    }
+</script>
