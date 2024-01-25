@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>객체배열</h1>
+</body>
+</html>
+
+<script>
+    let persons = [
+        {"name":"홍길동", "age":23},
+        {"name":"임꺽정", "age":24},
+        {"name":"강조",   "age":25},
+        {"name":"장길산", "age":33},
+        {"name":"홍경래", "age":43},
+        {"name":"이징옥", "age":83}
+    ];
+
+    console.log( persons[0].name );
+    console.log( persons[0]["name"]);
+
+    persons[0].name="고길동"; //값 변경시 
+
+    //
+    let i;
+    for(i=0; i<persons.length; i++)
+    {
+        console.log( persons[i].name, persons[i].age);
+    }
+
+    //in연산자를 사용해보자
+    for(i in persons)
+        console.log(i, persons[i].name, persons[i].age);
+
+    //of연산자 : 각 객체를 하나씩 가져온다 
+    for(ob of persons)
+        console.log(ob.name, ob.age);
+
+    //forEach -  많이 사용한다 
+    persons.forEach( (e)=>{
+        console.log( e.name, e.age);
+    })
+
+    //이름으로 검색을 하고 싶다. 강조의 나이를 앍고 싶다
+    let name ="윤관"; 
+    let search = persons.find (  (item) => {
+        console.log( typeof item); //type이 object이다. 
+        return item.name == name 
+    });
+
+    if(search==undefined)
+        console.log(`${name}은 없습니다`);
+    else 
+        console.log( search.name, search.age);
+
+    //1.30대 이상인 사람들 목록만 추출하기
+    
+    //2.30대 이상인 사람들은 모두 몇명이었는가?
+
+    //3.성이 홍씨인 사람들 목록만 추출하기 
+
+    //4.성이 홍씨인 사람들의 나이의 합 구하기 
+    
+</script>
+
+
