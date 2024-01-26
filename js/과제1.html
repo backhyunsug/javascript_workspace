@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="input" shize="100"> <br/><br/>
+
+    <button type="button" id="btnSort">오름차순정렬</button> <br/><br/>
+
+    <div id="result" style="border:1px solid red; width:60%;height:40px"></div>
+
+</body>
+</html>
+
+<script>
+    window.onload=function(){
+      
+        let btnSort = document.getElementById("btnSort");
+        btnSort.addEventListener("click", ()=>{
+            let input = document.getElementById("input").value;//데이터 읽어오고
+            let temps = input.split(","); //문자열을 분리 =>배열
+            temps = temps.map((item)=>parseInt(item)); //type : string -> value
+            let result = temps.sort( (a,b)=>a-b);//정렬비교함수
+            console.log( result );
+            result = result.join(" "); //배열=>문자열로
+            //배열을 주면 알아서 문자열로 바꾸는 기능도 있다 
+            document.getElementById("result").innerHTML = result;
+        })
+    }
+</script>

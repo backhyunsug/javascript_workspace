@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>주급계산</legend>
+
+        <label for="name">이름 : </label>
+        <input type="text" name="" id="name"> <br/>
+
+        <label for="per_pay">시간당급여액 : </label>
+        <input type="text" name="" id="per_pay"> <br/>
+
+        <label for="work_time">근무시간 : </label>
+        <input type="text" name="" id="work_time"> <br/>
+        
+        <button type="button" id="btnConfirm">확인</button> <br/>
+
+        <div id="result"></div>
+    </fieldset>
+</body>
+</html>
+
+<script>
+    window.onload=function(){
+        document.getElementById("btnConfirm").addEventListener("click", ()=>{
+            name = document.getElementById("name").value; 
+            per_pay = document.getElementById("per_pay").value; 
+            work_time = document.getElementById("work_time").value; 
+
+            result = `${name}님의 주급은 ${per_pay*work_time} 입니다`;
+
+            document.getElementById("result").innerHTML = result; 
+        })
+    }
+</script>
+

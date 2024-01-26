@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    값1 :  <input type="text" name="number" id=""> <br/>
+    값2 :  <input type="text" name="number" id=""> <br/>
+    값3 :  <input type="text" name="number" id=""> <br/>
+    값4 :  <input type="text" name="number" id=""> <br/>
+    값5 :  <input type="text" name="number" id=""> <br/>
+    값6 :  <input type="text" name="number" id=""> <br/>
+    값7 :  <input type="text" name="number" id=""> <br/>
+    값8 :  <input type="text" name="number" id=""> <br/>
+    값9 :  <input type="text" name="number" id=""> <br/>
+    값10 : <input type="text" name="number" id=""> <br/>
+    <button id="btnAdd" type="button">계산하기</button>
+</body>
+</html>
+
+<script>
+    window.onload = function(){
+        document.getElementById("btnAdd").addEventListener("click", ()=>{
+            let numbers = document.getElementsByName("number");
+            let sum=0;
+            numbers.forEach( (item)=>{
+                sum+=parseInt(item.value);
+            });
+            alert("합계 " + sum);
+        })
+    }
+</script>

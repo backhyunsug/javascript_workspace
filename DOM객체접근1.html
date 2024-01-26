@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM객체1.html</h1>
+    <h1 id="title1">제목1</h1>
+    <h1 id="title2">제목2</h1>
+    <h1 id="title3">제목3</h1>
+    <h1 id="title4">제목4</h1>
+</body>
+</html>
+<script>
+    document.getElementById("title1").innerHTML="제목을 바꿔보자 1";
+    document.getElementById("title2").innerHTML="제목을 바꿔보자 2";
+    document.getElementById("title3").innerHTML="제목을 바꿔보자 3";
+    document.querySelector("#title4").innerHTML="#을 꼭 써줘야 한다";
+  
+    let ids =["title1", "title2", "title3", "title4"];
+    let colors=["#ff0000", "#0000ff", "#00ff00", "#ffff00"];
+    for(i=0; i<ids.length; i++)
+    {
+        document.getElementById(ids[i]).style.color = colors[i];
+    }
+
+    for(i=1; i<=4; i++)
+    {
+        document.getElementById("title"+i).style.color = colors[i];
+    }
+</script>
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 이벤트 발생한 객체의 주소가 전달된다. : this-이벤트가 발생한 버튼객체-->
+    <button type="button" onclick="goChange(this)" 
+                  style="background-color: rgb(42, 138, 222);"
+            id="button1" >배경색바꾸기</button>
+    <button type="button" onclick="goChange(this)" 
+            id="button2"
+    style="background-color: rgb(222, 42, 96);">배경색바꾸기</button>
+
+    <button type="button" onclick="goChange(this)" 
+        id="button3"
+    style="background-color: rgb(220, 247, 122);">배경색바꾸기</button>
+
+</body>
+</html>
+
+ <script>
+    function goChange(me)
+    {
+        //존재하는 객체 : window객체아래에 event객체가 있음 
+        //발생했던 이벤트에 대한 정보를 가지고 있는 객체이다 
+        console.log( event );
+        
+        let body = document.getElementsByTagName("body")[0];
+        body.style.backgroundColor = me.style.backgroundColor;
+        event.target.style.color="#ff0000";
+    }
+ </script>

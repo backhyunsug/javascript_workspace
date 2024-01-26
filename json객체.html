@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON객체</h1>
+</body>
+</html>
+
+<script>
+    let userInfo = {"name":"홍길동", 'age':23, address:"서울시 관악구", 
+     "user-phone":"010-0000-0001"};
+    //키값은 "", '', 없어도 된다. 
+
+    console.log( userInfo.name );
+    console.log( userInfo.age  );
+    console.log( userInfo.address );
+    //console.log( userInfo.user-phone ); //변수는 -을 쓸 수 없어서 에러발생
+
+    console.log( userInfo["name"] );
+    console.log( userInfo["age"] );
+    console.log( userInfo["address"] );
+    console.log( userInfo["user-phone"] );
+
+    let userInfo2 = '{"name":"홍길동", "age":23, "address":"서울시 관악구"}';
+
+    console.log( typeof userInfo );  //object
+    console.log( typeof userInfo2 ); //string
+
+    //String -> object로 전환시켜준다  JSON.parse  <=> JSON.stringfy 
+    
+    userInfo3 = JSON.parse( userInfo2);
+    console.log( typeof userInfo3 ); //string
+
+    //json의 경우 새로운 요소 추가하기 
+    userInfo3["job"]="프로그래머";
+
+    console.log( userInfo3 );
+
+    userInfo3["display"]=function(){
+        //객체에 추가된 함수에서 객체 요소를 접근하고 싶으면 반드시 this를 써야 한다 
+        console.log("이름 ", this.name);
+        console.log("나이 ", this.age);
+        console.log("주소 ", this.address);
+        console.log("일 ", this.job);
+    }
+
+    userInfo3["display"](); //함수호출하기
+</script>

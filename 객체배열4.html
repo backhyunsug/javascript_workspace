@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>객체배열4</h1>
+</body>
+</html>
+
+<script>
+    let board = {
+        totalCnt:11,
+        pg:2,
+        boardList:
+        [
+            {id:1, title:'제목1', writer:'홍길동', contents:'내용1', wdate:'2024-01-26'},
+            {id:2, title:'제목2', writer:'둘리',   contents:'내용2', wdate:'2024-01-26'},
+            {id:3, title:'제목3', writer:'홍길동', contents:'내용3', wdate:'2024-01-26'},
+            {id:4, title:'제목4', writer:'도우너', contents:'내용4', wdate:'2024-01-26'},
+            {id:5, title:'제목5', writer:'마이콜', contents:'내용5', wdate:'2024-01-26'},
+            {id:6, title:'제목6', writer:'도우너', contents:'내용6', wdate:'2024-01-26'},
+            {id:7, title:'제목7', writer:'홍길동', contents:'내용7', wdate:'2024-01-26'},
+            {id:8, title:'제목8', writer:'홍길동', contents:'내용8', wdate:'2024-01-26'},
+            {id:9, title:'제목9', writer:'마이콜', contents:'내용9', wdate:'2024-01-26'},
+            {id:10, title:'제목10', writer:'마이콜', contents:'내용10', wdate:'2024-01-26'},
+            {id:11, title:'제목11', writer:'홍길동', contents:'내용11', wdate:'2024-01-26'},
+        ]
+    }
+    
+    //api문서 만들기 쉽게 도와주는 프로그램 - swagger 
+    console.log("전체데이터 개수 : ", board.totalCnt); 
+    console.log("현재페이지 : ", board.pg);
+    console.log("데이터출력하기");
+    board.boardList.forEach( (ob)=>{
+        console.log( ob );
+    }) 
+    
+</script>

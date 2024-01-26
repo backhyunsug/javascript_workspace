@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>프라미스체인</h1>
+</body>
+</html>
+
+<script>
+
+    new Promise( (resolve, reject)=>{
+        //setTimeout(함수주소, 시간-밀리초) 밀리초가 지나면 함수를 딱 한번만 호출한다 
+        setTimeout( ()=>{
+            resolve(10);
+        }, 2000); 
+    })
+    .then( (result)=>{
+        console.log("result", result);
+        return result+10; //이 값이 그다음 then에서 호출할 함수의 매개변수로 전달된다. 
+    })
+    .then( (result)=>{
+        console.log("result", result);
+        return result+10; //이 값이 그다음 then에서 호출할 함수의 매개변수로 전달된다. 
+    })
+    .then( (result)=>{
+        console.log("result", result);
+    })
+</script>

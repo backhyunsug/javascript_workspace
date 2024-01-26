@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>객체배열2</h1>
+</body>
+</html>
+
+<script>
+    let result = {
+        "data": [
+        {
+            "rank": 1,
+            "rankChange": 0,
+            "symbolCode": "A460930",
+            "code": "KR7460930001",
+            "name": "현대힘스",
+            "tradePrice": 29200,
+            "change": "UPPER_LIMIT",
+            "changePrice": 21900,
+            "changeRate": 3,
+            "chartSlideImage": null,
+            "isNew": true
+        },
+        {
+            "rank": 2,
+            "rankChange": 0,
+            "symbolCode": "A005930",
+            "code": "KR7005930003",
+            "name": "삼성전자",
+            "tradePrice": 73600,
+            "change": "FALL",
+            "changePrice": 500,
+            "changeRate": 0.0067476383,
+            "chartSlideImage": null,
+            "isNew": false
+        },
+        {
+            "rank": 3,
+            "rankChange": -2,
+            "symbolCode": "A080220",
+            "code": "KR7080220007",
+            "name": "제주반도체",
+            "tradePrice": 32000,
+            "change": "FALL",
+            "changePrice": 2000,
+            "changeRate": 0.0588235294,
+            "chartSlideImage": null,
+            "isNew": false
+        },
+        {
+            "rank": 4,
+            "rankChange": 2,
+            "symbolCode": "A457550",
+            "code": "KR7457550002",
+            "name": "우진엔텍",
+            "tradePrice": 34950,
+            "change": "RISE",
+            "changePrice": 7400,
+            "changeRate": 0.2686025408,
+            "chartSlideImage": null,
+            "isNew": false
+        },
+        {
+            "rank": 5,
+            "rankChange": 4,
+            "symbolCode": "A089890",
+            "code": "KR7089890008",
+            "name": "코세스",
+            "tradePrice": 19230,
+            "change": "FALL",
+            "changePrice": 1120,
+            "changeRate": 0.055036855,
+            "chartSlideImage": null,
+            "isNew": false
+        },
+        {
+            "rank": 6,
+            "rankChange": -2,
+            "symbolCode": "A035720",
+            "code": "KR7035720002",
+            "name": "카카오",
+            "tradePrice": 56500,
+            "change": "RISE",
+            "changePrice": 500,
+            "changeRate": 0.0089285714,
+            "chartSlideImage": null,
+            "isNew": false
+        },
+        {
+            "rank": 7,
+            "rankChange": 0,
+            "symbolCode": "A028300",
+            "code": "KR7028300002",
+            "name": "HLB",
+            "tradePrice": 60100,
+            "change": "RISE",
+            "changePrice": 5400,
+            "changeRate": 0.0987202925,
+            "chartSlideImage": null,
+            "isNew": false
+        },
+        {
+            "rank": 8,
+            "rankChange": -3,
+            "symbolCode": "A102120",
+            "code": "KR7102120003",
+            "name": "어보브반도체",
+            "tradePrice": 22300,
+            "change": "RISE",
+            "changePrice": 300,
+            "changeRate": 0.0136363636,
+            "chartSlideImage": null,
+            "isNew": false
+        },
+        {
+            "rank": 9,
+            "rankChange": -6,
+            "symbolCode": "A000270",
+            "code": "KR7000270009",
+            "name": "기아",
+            "tradePrice": 93500,
+            "change": "RISE",
+            "changePrice": 500,
+            "changeRate": 0.0053763441,
+            "chartSlideImage": null,
+            "isNew": false
+        },
+        {
+            "rank": 10,
+            "rankChange": 0,
+            "symbolCode": "A068270",
+            "code": "KR7068270008",
+            "name": "셀트리온",
+            "tradePrice": 180400,
+            "change": "FALL",
+            "changePrice": 1600,
+            "changeRate": 0.0087912088,
+            "chartSlideImage": null,
+            "isNew": false
+        }
+    ]
+};
+
+
+let data = result.data;
+console.log( data );
+data.forEach( (item)=>{
+    console.log( item.name, item.tradePrice);
+});
+
+///JSON객체를 만들어서 품목, 거래가 , 거래가 내림차순 정렬해서 출력하기 
+let trade =[];
+data.forEach( (item)=>{
+        trade.push({"name":item.name, "tradeprice":item.tradePrice});
+    }
+);
+
+trade2 = data.map( (item)=> { 
+    //객체를 매개변수로 받아와서 객체 반환 
+    return {"name":item.name, "tradeprice":item.tradePrice}
+});
+
+console.log( trade2 );
+
+//거래가 기준 내림차순 
+trade.sort( (item1, item2)=> item2.tradeprice - item1.tradeprice);
+console.log( trade );
+
+
+</script> 

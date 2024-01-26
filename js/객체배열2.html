@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>객체배열과 람다사용하기</h1>
+</body>
+</html>
+<script>
+    let scores = [
+        {"id":1, "name":"김성훈", "kor":90, "eng":80, "mat":60},
+        {"id":2, "name":"이민호", "kor":100, "eng":100, "mat":95},
+        {"id":3, "name":"김경하", "kor":80, "eng":80, "mat":60},
+        {"id":4, "name":"전미화", "kor":70, "eng":90, "mat":60},
+        {"id":5, "name":"김정하", "kor":80, "eng":70, "mat":80},
+        {"id":6, "name":"강수지", "kor":60, "eng":50, "mat":30},
+        {"id":7, "name":"한승원", "kor":50, "eng":50, "mat":40},
+        {"id":8, "name":"홍정훈", "kor":90, "eng":70, "mat":60},
+        {"id":9, "name":"백운용", "kor":95, "eng":80, "mat":70},
+        {"id":10, "name":"최주용", "kor":90, "eng":90, "mat":90},
+    ];
+    console.log(scores);
+    //문제1. : 총점(total), 평균(avg) 구하기 - forEach 
+    scores.forEach( (item)=>{
+        item["total"] = item.kor + item.eng + item.mat;
+        item["avg"] = item.total/3; 
+    });
+    console.log(scores);
+
+    //문제2. : 국어 성적이 80점 이상인 학생의 숫자 - filter
+    console.log( scores.filter( (item)=> item.kor>=80 ).length );
+
+    //문제3. : 평균이 80점 이상인 학생 리스트  - filter 
+    console.log( scores.filter( (item)=> item.avg>=80 ) );
+
+    //문제4. : 총점순으로 정렬(내림차순)하여  출력하기(원본데이터는 그대로)
+    let sorted = scores.toSorted(( a, b)=> b.avg - a.avg);
+    console.log("정렬후");
+    console.log( sorted );
+
+    //문제5. : 이름에 "정" 자가 들어가는 사람만 성적순으로 내림차순 정렬하여 출력하기 
+    sorted = scores.filter( (item)=> item.name.includes("정") )
+                   .toSorted( ( a, b)=> b.avg - a.avg);
+    console.log( sorted );
+             
+    //문제6. :   ["홍정훈", "김정하", "이민호"] 세명 정보만 추출하기 => filter, find나 
+    //           find류 함수를 써서 찾아보자 
+
+    let keynames = ["홍정훈", "김정하", "이민호", "강감찬", "최주용"] 
+    results = scores.filter ( (ob)=>{
+        return keynames.find((key)=> key == ob.name)!=undefined
+    });
+
+    console.log( results );
+
+</script>
