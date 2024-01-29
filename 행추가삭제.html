@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btnAdd">행추가</button>
+    <button type="button" id="btnDel">행삭제</button>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>품목</th>
+                <th>수량</th>
+                <th>단가</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td><input type="text" name="product_name"></td>
+                <td><input type="text" name="product_cnt"></td>
+                <td><input type="text" name="product_unit"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+<script>
+    window.onload = ()=>{
+        document.getElementById("btnAdd").addEventListener("click", ()=>{
+            let tbody = document.getElementById("tbody");
+            let row = tbody.insertRow(tbody.rows.length); 
+            let cell1 = row.insertCell(0);
+            cell1.innerHTML = '<input type="text" name="product_name">'; 
+            let cell2 = row.insertCell(0);
+            cell2.innerHTML = '<input type="text" name="product_cnt">'; 
+            let cell3 = row.insertCell(0);
+            cell3.innerHTML = '<input type="text" name="product_unit">'; 
+        });
+
+        document.getElementById("btnDel").addEventListener("click", ()=>{
+            let tbody = document.getElementById("tbody");
+            if(tbody.rows.length>1 )
+                tbody.deleteRow( tbody.rows.length-1); 
+                //배열 인덱스는 0부터 시작   0번방에 데이터 있을때 tbody.row.length=1
+            else 
+                alert("더이상 삭제할 수 없습니다");
+        });
+    }
+</script>
+

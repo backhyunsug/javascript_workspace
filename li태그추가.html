@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="product" id="product"> 
+    <button type="button" id="btnAdd">추가</button>
+    <button type="button" id="btnDel">삭제</button> <Br/><Br/>
+
+    <ul id="coffee"> <!-- 태그에 어떤 연산을 하려고 할경우에 아이디를 주는게 접근이 
+                          편하다 -->
+        <li>카카오</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    window.onload = ()=>{
+        document.getElementById("btnAdd").addEventListener("click", funAdd);
+        document.getElementById("btnDel").addEventListener("click", funDel);
+    }
+
+    function funAdd()
+    {
+        let ul = document.getElementById("coffee");
+        //새로운 요소(li) 태그를 생성한다. 
+        let li = document.createElement("li");  //태그를 동적생성하는 일반적인 방법이다
+        li.innerHTML = document.getElementById("product").value; 
+        //input 태그내의 value값을 li태그에 넣는다 
+        ul.appendChild( li ); //부모태그의 자식 태그로 설정한다  
+        
+        //createElement, appendChild -> 모든 태그를 동적으로 생성할때 사용한다 
+    }
+
+    function funDel()
+    {
+        let ul = document.getElementById("coffee");
+        //새로운 요소(li) 태그를 생성한다. 
+        //테이블은 배열(선형)구조이지만 DOM구조는 tree 구조다 index개념이 없다. 
+        if( ul.children.length>1) //자식의 개수가 1을 넘을 때 
+            ul.removeChild( coffee.lastChild );//맨 마지막 child를 삭제한다 
+        else
+            alert("더이상 삭제 불가");
+    }
+</script>

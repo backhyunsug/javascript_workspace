@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>아무키나 누르세요</h1>
+    
+    <input type="text" name="" id="" onkeydown="keyDown()" 
+       onkeypress="keyPress()"
+       onkeyup="keyUp()"
+       onchange="keyUp()"> <br/>
+    <input type="number" />
+</body>
+</html>
+
+<script>
+    function keyDown()
+    {   
+        //event : 시스템이제공하는 기본 객체 - 발생한 이벤트에 대한 정보가 온다
+        console.log( event.key );
+        if(event.key>='a' && event.key<='z')
+        {
+            event.key-=32; 
+            console.log("소문자임");
+        }
+        console.log("key down");
+    }
+
+    function keyPress()
+    {
+        console.log( event );
+        console.log("key press");
+    }
+
+    function keyUp()
+    {
+        var s = document.getElementsByTagName("input")[0];
+        //input 태그에대한 참조를 가져온다 
+        //input 태그에 id속성이나 name속성값이 없어서 TagName으로 가져온다
+        s.value = s.value.toUpperCase();
+        //값을 대문자로 바꿔치기 한다 
+        console.log( event );
+        console.log("key up");
+    }
+</script>

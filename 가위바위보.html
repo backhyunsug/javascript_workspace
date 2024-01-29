@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>가위바위보게임</h1>
+        <button type="button" id="btnGame1" style="width:120px">가위</button>&nbsp;
+        <button type="button" id="btnGame2" style="width:120px">바위</button>&nbsp;
+        <button type="button" id="btnGame3" style="width:120px">보</button>&nbsp;
+        <br/>
+        <div id="result"></div>  <br/>
+    </div>
+</body>
+</html>
+
+<script>
+    window.onload = function(){
+     
+        for(let i=1; i<=3; i++)
+            document.getElementById("btnGame"+i).addEventListener("click", ()=>{
+                gameStart(i);
+            })
+    }
+
+    function gameStart(person)
+    {
+        console.log( person );
+        computer = Math.ceil(Math.random()*3);
+        winner = getWinner(computer, person);
+
+        let winners = ["", "무승부", "컴퓨터승", "사람승"];
+        let titles = ["", "가위", "바위", "보"];
+        let msg = 
+            `컴퓨터 : ${titles[computer]}  
+            사람:${titles[person]}  
+            승부:${winners[winner]} `;
+        alert(msg);
+    }
+
+    function getWinner(computer, person){
+        let winner=1;
+        if (computer == person) //무승부 
+            winner = 1; //무승부 상황 
+        else if(computer == 1 && person==2 )//가위  바위   
+            winner = 2;  //컴퓨터 승 
+        else if(computer == 1 && person==3 )
+            winner = 3; //사람승
+        else if(computer == 2 && person==1 )
+            winner = 2 //컴퓨터승
+        else if(computer == 2 && person==3 )
+            winner = 3 //사람승
+        else if(computer == 3 && person==1 )
+            winner = 3 //사람승
+        else if(computer == 3 && person==2 )
+            winner = 2 //컴푸터승
+
+        return winner;
+    }
+</script>

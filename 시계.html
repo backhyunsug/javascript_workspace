@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color:#0000ff"></h1>
+
+    <button type="button" id="btnStart">시작</button>
+    <button type="button" id="btnEnd">종료</button>
+</body>
+</html>
+<script>
+    //전역변수
+    let timer1 =null;  //변수를 직접 초기화하고자 할때 null값으로 하자 
+    window.onload = ()=>{
+        document.getElementById("btnStart").addEventListener("click", ()=>{
+            timer1 = setInterval( ()=>{
+                let today = new Date(); //객체 생성시 오늘 날짜와 시간이 내부에저장
+                today = today.toLocaleTimeString(); //현재 시간만 가져온다 
+                document.querySelector("h1").innerHTML = today; 
+            }, 1000);
+        });
+
+        document.getElementById("btnEnd").addEventListener("click", ()=>{
+          if( timer1!=null)
+          {
+            clearInterval(timer1);
+            timer1 = null;
+          }
+        });
+    }
+</script>
+

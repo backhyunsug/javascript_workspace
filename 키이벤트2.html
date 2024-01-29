@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--onkeypress:자바스크립트에서 잘 안씀-->
+    이벤트 : <input type="text" onkeypress="inNumber()" id="number"> <br/>
+    정규식 : <input type="text"  id="number2" oninput="regTest()" > 
+</body>
+</html>
+
+<script>
+    function inNumber()
+    {
+        if(event.key<'0' || event.key>'9')
+            event.returnValue = false; //화면에 숫자이외의 문자 출력을 막는다 
+    }
+
+    function regTest() //정규식 사용하기 
+    {
+        num  = document.getElementById("number2");
+        num.value = num.value.replace(/[^0-9]/g, ""); 
+        // 정규식 : 패턴이라고 함 
+        //    /패턴/범위   의미임 
+        //    /^[0-9]/  - 첫글자가 0~9에 해당하는 이라는 의미임 
+        //    /[^0-9]/  - 글자가 0~9가 아닌것만    
+        //    /[^0-9]/g - 숫자가 아닌 모든 문자를 찾아서 
+        
+    }
+</script>

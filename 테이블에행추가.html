@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>품목</th>
+                <th>수량</th>
+                <th>단가</th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+</body>
+</html>
+
+<script>
+    let data = [
+        {product_name:"새우깡", product_cnt:10, product_unit:2000},
+        {product_name:"에이스", product_cnt:5,  product_unit:5000},
+        {product_name:"맛동산", product_cnt:20, product_unit:7000},
+        {product_name:"오감자", product_cnt:10, product_unit:2000},
+        {product_name:"초코파이", product_cnt:10, product_unit:10000},
+    ];
+
+    window.onload = load();
+
+    function load()
+    {
+        let tbody = document.getElementById("tbody");
+
+        data.forEach((item)=>{
+                let row = tbody.insertRow( tbody.rows.length ); //마지막에 행추가
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+
+                cell1.innerHTML = item.product_name;
+                cell2.innerHTML = item.product_cnt;
+                cell3.innerHTML = item.product_unit;
+            }
+        )
+    }
+</script>
