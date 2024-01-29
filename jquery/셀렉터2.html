@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>헤더1</h1>
+    <h2>헤더2</h1>
+
+    <p>셀렉터1</p>
+    <p>셀렉터2</p>
+    <p>셀렉터3</p>
+    <p>셀렉터4</p>
+    <p>셀렉터5</p>
+    <p>셀렉터6</p>
+    <p>셀렉터7</p>
+    <p>셀렉터8</p>
+
+    <button type="button" id="btnAll">전체선택</button>
+    <button type="button" id="btnFirst">첫번째요소</button>
+</body>
+</html>
+
+<script>
+    $(()=>{
+        $("#btnAll").click(function(){
+            //$("*").css("color", "#ff4444");
+            $(this).css("color", "#ff4444");
+            //this가 화살표함수안에서 객체에 대한 참조를 못갖고온다(Vue)
+            //jquery의 가장 큰 문제점은 그냥 에러메시지를 안보여준다 
+            //$(this).hide(); //감추기
+        });
+
+        $("#btnFirst").click( ()=>{
+            console.log("click");
+            $("p:first").css("color", "#ff00ff");
+        });
+
+        //$(selector).hide(speed,callback);
+
+    })
+</script>

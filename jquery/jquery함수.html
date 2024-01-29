@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+  <!-- https://releases.jquery.com/  -->
+
+</head>
+<body>
+    X : <input type="text" name="" id="x"> <br/>
+    Y : <input type="text" name="" id="y"> <br/>
+
+    <button type="button" id="btnAdd">+</button>
+</body>
+</html>
+<script>
+    //Uncaught ReferenceError: $ is not defined  : cdn안붙이면 나는 에러 
+    $(document).ready(()=>{
+        $("#btnAdd").click( ()=>{
+            console.log( parseInt($("#x").val()) + parseInt($("#y").val()) );
+        });
+    })
+</script>

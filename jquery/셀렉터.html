@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 id="color1">셀렉터1</h1>
+    <h1 id="color2">셀렉터2</h1>
+
+    <p class="colorRed">클래스를 이용해 접근하기1</p>
+    <p class="colorRed">클래스를 이용해 접근하기2</p>
+    <p class="colorRed">클래스를 이용해 접근하기3</p>
+    <p class="colorRed">클래스를 이용해 접근하기4</p>
+
+    <p class="colorBlue">클래스를 이용해 접근하기5</p>
+    <p class="colorBlue">클래스를 이용해 접근하기6</p>
+    <p class="colorBlue">클래스를 이용해 접근하기7</p>
+    <p class="colorBlue">클래스를 이용해 접근하기8</p>
+</body>
+</html>
+
+<script>
+    $(()=>{
+        let h1 = $("h1");
+        //h1[0].style.color="#ff0000";
+        console.log( h1 );
+        //style을 변경하려면 css라는 함수를 준다. 
+        h1.css("color", "#ff00ff");
+
+        //자바스크립트 객체와 jquery가 만드는 객체는 서로 다르다 
+
+        $("#color1").css("color", "#ffff00");
+        $("#color2").css("color", "#00ff00");
+
+        $(".colorRed").css("color", "#ff0000");
+        $(".colorBlue").css("color", "#0000ff");
+     
+        $(".colorRed").prop("style" ,  "color:#0000ff");
+        $(".colorBlue").prop("style" ,  "color:#ff0000");
+        
+    })
+</script>
