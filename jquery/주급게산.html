@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>주급계산</h1>
+
+    <table>
+        <tbody id="tbody"></tbody>
+    </table>
+</body>
+</html>
+<script>
+    //백앤드로 부터 Ajax통신을 통해서 받아와야 한다 
+    let payData = [
+        {"name":"홍길동", "time":"40", "perpay": "10000"},
+        {"name":"임꺽정", "time":"30", "perpay": "20000"},
+        {"name":"장길산", "time":"20", "perpay": "20000"},
+        {"name":"김미영", "time":"15", "perpay": "30000"},
+    ];
+
+    window.onload=function(){
+        loadPayData();
+    }
+
+    function loadPayData()
+    {
+        let tbody = document.querySelector("#tbody");
+       
+        payData.forEach( (item)=>{
+            //행 하나 추가
+            let row = tbody.insertRow( tbody.rows.length );
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
+        
+            cell1.innerHTML = item.name;
+            cell2.innerHTML = item.time;
+            cell3.innerHTML = parseInt(item.perpay).toLocaleString(),
+            cell4.innerHTML = getPay(item.time, item.perpay ).toLocaleString();
+        })
+    }
+
+    function getPay(time, pay)
+    {
+        base_pay = time * pay;
+        over_pay = 0; //연장수당이 없는 경우 
+        if( time>20)
+        {
+            over_pay = (time-20)*pay/2; //연장수당이 있는 경우
+        }
+        return base_pay + over_pay;
+    }
+    
+</script>

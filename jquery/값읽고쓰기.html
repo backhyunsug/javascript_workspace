@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div><h1>hello</h1></div>
+    <input type="text" name="" id="input" value="<h1>hello</h1>">
+</body>
+</html>
+
+<script>
+    console.log( $("div").text() );
+    console.log( $("div").html() );
+    console.log( $("#input").val() );
+
+    //$("div").text("<h3 style='color:#ff0000'>text</h3>");
+    $("div").html("<h3 style='color:#ff0000'>text</h3>");
+
+</script>

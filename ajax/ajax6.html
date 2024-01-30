@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <h1>ajax1 html</h1>
+    x : <input type="text" name="xvalue" id="xvalue"> <br/>
+    y : <input type="text" name="yvalue" id="yvalue"> <br/>
+    
+    <div id="result" style="border:1px soid red; width:400px; height:200px"></div>
+    <button type="button" id="btnSend">비동기호출</button>
+</body>
+</html>
+
+<script>
+    document.querySelector("#btnSend").addEventListener("click", ()=>{
+
+        let x = document.querySelector("#xvalue").value; 
+        let y = document.querySelector("#yvalue").value; 
+     
+        let url = `http://127.0.0.1:8080/add4`;
+        axios.post(url, {
+            "x":x, "y":y
+        })
+        .then(( res )=>{
+            console.log( res.data  );
+            document.querySelector("#result").innerHTML=res.data.result;
+        })
+        .catch((msg)=>{
+            console.log( msg );
+        });
+    });
+</script>

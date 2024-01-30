@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ajax1 html</h1>
+
+    <div id="result" style="border:1px soid red; width:400px; height:200px"></div>
+
+    <button type="button" id="btnSend">비동기호출</button>
+</body>
+</html>
+
+<script>
+    document.querySelector("#btnSend").addEventListener("click", ()=>{
+        let xmlHttp = new XMLHttpRequest(); //통신을 담당하는 객체이다. 
+        //통신이란 
+        //onsreadystatechange : 어떤 상태가 되었던 서버로부터 수신이되면 
+        //                 onsreadystatechange에 전달된 함수를 호출
+        xmlHttp.onreadystatechange= function(){
+            console.log(this.readyState, this.status, this.statusText);
+            if( this.readyState==4 && this.status==200)
+            {
+                //JSON형태의 문자열을 => JSON객체로 바꾸자
+                let userInfo = JSON.parse(xmlHttp.responseText); 
+                document.querySelector("#result").innerHTML = userInfo.name + " "
+                + userInfo.phone + userInfo.address;
+            }
+        }
+
+        xmlHttp.open("GET", "http://127.0.0.1:8080/getUserInfo");
+        xmlHttp.send(); 
+    });
+</script>

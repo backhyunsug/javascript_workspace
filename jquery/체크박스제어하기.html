@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    사용가능한 언어<br/>
+    <input type="checkbox" name="language" id="" value="1">java<br/>
+    <input type="checkbox" name="language" id="" value="2">python<br/>
+    <input type="checkbox" name="language" id="" value="3">nodejs<br/>
+    <input type="checkbox" name="language" id="" value="4">c<br/>
+    <input type="checkbox" name="language" id="" value="5">c++<br/>
+    <input type="checkbox" name="language" id="" value="6">c#<br/>
+
+    <button id="btnAllSelect">전체선택</button>
+    <button id="btnAllRelease">전체해제</button>
+</body>
+</html>
+
+<script>
+    $(()=>{
+        $("#btnAllSelect").click(()=>
+        {
+            event.preventDefault(); // type="button" 
+            $("input[type=checkbox][name=language]").prop("checked", true);
+        });
+
+        $("#btnAllRelease").click(()=>
+        {
+            event.preventDefault(); // type="button" 
+            $("input[type=checkbox][name=language]").prop("checked", false);
+        });
+    })
+</script>

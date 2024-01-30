@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ajax1 html</h1>
+
+    <div id="result" style="border:1px soid red; width:400px; height:200px"></div>
+
+    <button type="button" id="btnSend">비동기호출</button>
+</body>
+</html>
+
+<script>
+    document.querySelector("#btnSend").addEventListener("click", ()=>{
+/*
+        fetch("https://example.com/profile", {
+            method: "POST", // 또는 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+*/
+
+        //fetch함수가 주는 결과는 Promise 객체이다. 
+        //Promise가 일을 종료할때까지 기다란다. then 구문 
+
+        fetch("http://127.0.0.1:8080/getUserInfo")
+        .then((res)=>{
+            console.log(res);
+            //Response객체로 전달받는다. => json함수도 있고 , 정보
+            return res.json(); //데이터만 다음 then 구문으로 전달됨 
+        })
+        .then((data)=>{
+            //데이터를 어떤 형태로 받아오는지 확인하기
+            //문자열로 주지 않고 JSON객체로 전환 시켜 온다.
+            console.log( typeof(data));
+            alert(data.name);
+        })
+        .catch( (error)=>{
+            console.log(error);
+        });
+    });
+</script>

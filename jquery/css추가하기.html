@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        .blue{
+            border:3px solid blue;
+            padding:2px;
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>스타일을 추가해보자</h1>
+
+    <button type="button" id="btnAdd">추가</button>
+    <button type="button" id="btnDel">제거</button>
+</body>
+</html>
+
+<script>
+    $(()=>{
+        $("#btnAdd").click(()=>{
+            $("h1").addClass("blue");
+        });
+
+        $("#btnDel").click(()=>{
+            $("h1").removeClass("blue");
+        });
+    })
+</script>
