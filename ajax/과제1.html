@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <h1>주급계산</h1>
+    이름 :         <input type="text" name="name" id="name"> <br/>
+    근무시간 :     <input type="text" name="work_time" id="work_time"> <br/>
+    시간당급여액 : <input type="text" name="per_pay" id="per_pay"> <br/>
+    <div id="result" style="border:1px soid red; height:100px"></div>
+    <button type="button" id="btnSend">확인</button>
+</body>
+</html>
+
+<script>
+    document.querySelector("#btnSend").addEventListener("click", ()=>{
+
+        let name = document.querySelector("#name").value; 
+        let work_time = document.querySelector("#work_time").value; 
+        let per_pay = document.querySelector("#per_pay").value; 
+
+        let url = `http://127.0.0.1:8080/getPayment`;
+        axios.post(url, {
+            "work_time":work_time, 
+            "per_pay":per_pay, 
+            "name":name
+        })
+        .then(( res )=>{
+            console.log( res.data  );
+            document.querySelector("#result").innerHTML=res.data.msg;
+        })
+        .catch((msg)=>{
+            console.log( msg );
+        });
+    });
+</script>
